@@ -1,0 +1,57 @@
+% start S
+S[-INV,SEM=<(WHQUERY(?whq, ?semnp))>, VAR=?v] -> HOW-MANY[SEM=?whq,VAR=?v] NP[SEM=?semnp,VAR=?v]
+
+S[-INV,SEM=<(WHQUERY(?whq, ?sems))>, VAR=?v, GAP=?t] -> HOW-LONG[SEM=?whq,VAR=?t] S-TIME[+INV,SEM=?sems,GAP=?t]
+S-TIME[+INV, SEM=?semvp, VAR=?v, GAP=?t] -> V[+AUX,SEM=<DO>] PRO[SEM=<IT>] V[-AUX,SEM=<TAKE>] P[SEM=<TO>] VP-TIME[SEM=?semvp,VAR=?v,GAP=?t]
+
+S[-INV,SEM=<QUERY(?semaux(?sems))>,VAR=?v] -> V[+AUX,SEM=?semaux] S[SEM=?sems]
+S[-INV,SEM=?semvp,VAR=?v] -> NP[SEM=?semnp] VP[SEM=?semvp,VAR=?v]
+
+HOW-MANY[SEM=<HOWMANY(?v)>,VAR=?v] -> 'How' 'many'
+HOW-LONG[SEM=<HOWLONG(?v)>,VAR=?v] -> 'How' 'long'
+
+NP[SEM=<?semn & ?sempp>,VAR=?v] -> N[SEM=?semn,VAR=?v] PP[SEM=?sempp,VAR=?v]
+NP[SEM=?sempro,VAR=?v] -> PRO[SEM=?sempro,VAR=?v] 
+NP[SEM=?semn,VAR=?v] -> N[SEM=?semn,VAR=?v]
+NP[SEM=<?semdet(?semn)>,VAR=?v] -> DET[SEM=?semdet] NP[SEM=?semn,VAR=?v]
+NP[SEM=<?semadj(?v)>, VAR=?v] -> ADJ[SEM=?semadj] NP[SEM=?v]
+
+VP[SEM=<?semv(?semn)>,VAR=?v] -> V[SEM=?semv] NP[SEM=?semn]
+
+VP-TIME[SEM=<?semv(?v,TIME(?t)) & ?sempp>,VAR=?v,GAP=?t] -> V[-AUX,SEM=?semv] PP[SEM=?sempp,VAR=?v]
+
+PP[SEM=<?semp(?v,?semnp)>,VAR=?v] -> P[SEM=?semp] NP[SEM=?semnp]
+PP[SEM=<?semp(?v,?semvp)>,VAR=?v] -> P[SEM=?semp] VP[SEM=?semvp]
+
+PP[SEM=<FROM(?v,?sname) & TO(?v,?dname)>, VAR=?v] -> P[SEM=<FROM>] NP[SEM=?sname] P[SEM=<TO>] NP[SEM=?dname]
+PP[SEM=<TO(?v,?name)>,VAR=?v] -> P[SEM=<TO>,VAR=?v] NP[SEM=?name]
+PP[SEM=<OF(?v,?n)>,VAR=?v] -> P[SEM=<OF>] NP[SEM=?n]
+PP[SEM=<FOR(?v,?n)>,VAR=?v] -> P[SEM=<FOR>] NP[SEM=?n]
+
+N[SEM=<TOUR(?v)>,VAR=?v] -> 'tours' | 'tour'
+N[SEM=<TRANSPORTATION(?v)>,VAR=?v] -> 'transportation' | 'vehicle'
+N[SEM=<TYPE(?v)>,VAR=?v] -> 'type' | 'types' | 'kind'
+N[SEM=?semname] -> CITY-NAME[SEM=?semname] 
+
+PRO[SEM=<IT>,VAR=?v] -> 'it' | 'It'
+PRO[SEM=<YOU>,VAR=?v] -> 'you' | 'You'
+
+DET[SEM=<DET>] -> 'a' | 'an' | 'the'
+
+ADJ[SEM=<ALL>] -> 'all'
+ADJ[SEM=?semadj] -> CITY-NAME[SEM=?semadj]
+
+P[SEM=<TO>] -> 'to'
+P[SEM=<OF>] -> 'of'
+P[SEM=<FROM>] -> 'from'
+P[SEM=<FOR>] -> 'for'
+
+V[+AUX,SEM=<DO>] -> 'Can' | 'Do' | 'Did' | 'can' | 'do' | 'did' | 'Does' | 'does'
+V[-AUX,SEM=<TAKE>] -> 'take' | 'takes'
+V[-AUX,SEM=<ARRVIE>] -> 'arrive' | 'arrives' | 'travel' | 'travels' 
+V[-AUX,SEM=<LIST>] -> 'list' | 'repeat' | 'count'
+
+CITY-NAME[SEM=<NAME(nt1, 'NT')>,VAR=?nt1] -> 'Nha' 'Trang'
+CITY-NAME[SEM=<NAME(pq1, 'PQ')>,VAR=?pq1] -> 'Phu' 'Quoc'
+CITY-NAME[SEM=<NAME(dn1, 'DN')>,VAR=?dn1] -> 'Da' 'Nang'
+CITY-NAME[SEM=<NAME(hcm1, 'HCM')>,VAR=?hcm1] -> 'Ho' 'Chi' 'Minh'

@@ -1,0 +1,31 @@
+{
+    "database":{
+        "TOURS":{
+            "PQ":"Phu_Quoc",
+            "DN":"Da_Nang",
+            "NT":"Nha_Trang"
+        },
+        "DTIME":{
+            "PQ": [
+                "7AM 1/7","8AM 5/7"
+            ],
+            "DN": [
+                "7AM 1/7","7AM 4/7"
+            ],
+            "NT": [
+                "7AM 1/7","7AM 5/7"
+            ]
+        },
+        "RUNTIME":{
+            "PQ": "2:00 HR",
+            "DN": "2:00 HR",
+            "NT": "5:00 HR"
+        },
+        "BY":{
+            "PQ": "airplane",
+            "DN": "airplane",
+            "NT": "train"
+        }
+
+    }
+}
