@@ -1,0 +1,1 @@
+WHQUERY(HOWMANY(?v),(TOUR(?v) & TO(?v,NAME(pq1,'PQ'))))

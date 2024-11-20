@@ -1,9 +1,9 @@
 {
     "database":{
         "TOURS":{
-            "PQ":"Phu_Quoc",
-            "DN":"Da_Nang",
-            "NT":"Nha_Trang"
+            "PQ":"Phu Quoc",
+            "DN":"Da Nang",
+            "NT":"Nha Trang"
         },
         "DTIME":{
             "PQ": [
@@ -22,9 +22,9 @@
             "NT": "5:00 HR"
         },
         "BY":{
-            "PQ": "airplane",
-            "DN": "airplane",
-            "NT": "train"
+            "PQ": "Airplane",
+            "DN": "Airplane",
+            "NT": "Train"
         }
 
     }

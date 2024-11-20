@@ -1,0 +1,1 @@
+QUERY(DO(LIST(ALL(DET((TOUR(?v3) & TO(?v3,NAME(dn1,'DN'))))),YOU)))

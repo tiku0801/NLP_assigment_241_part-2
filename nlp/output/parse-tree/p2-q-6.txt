@@ -1,0 +1,1 @@
+WHQUERY(WHAT(?v),BE(USE(FOR(?v,DET(NAME(nt1,'NT',TOUR(?v5))))),(TYPE(?v) & OF(?v,TRANSPORTATION(?v7)))))

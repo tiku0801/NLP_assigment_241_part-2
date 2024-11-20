@@ -1,0 +1,1 @@
+WHQUERY(HOWLONG(?t),(ARRVIE(?v3,TIME(?t)) & FROM(?v3,NAME(hcm1,'HCM')) & TO(?v3,NAME(nt1,'NT'))))

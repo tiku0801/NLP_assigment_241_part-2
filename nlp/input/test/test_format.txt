@@ -2,7 +2,7 @@ Can you repeat all the tours? ->  SELECT all IN DTIME
 How long does it take to travel from Ho Chi Minh to Nha Trang? ->  NT IN RUNTIME
 How long does it take to travel from Ho Chi Minh to Da Nang? ->  DN IN RUNTIME
 How many tours to Phu Quoc? ->  PQ IN DTIME
-What type of transportation is used for the Nha Trang tour? ->  NT IN BY*
+What type of transportation is used for the Nha Trang tour? ->  NT IN BY
 What days are available for the Nha Trang tour? ->  NT IN DTIME *
 How many types of transportation?  all in BY
 How many types of transportation to Phu Quoc?
@@ -45,3 +45,7 @@ QUERY(DO(LIST(ALL(DET(TOUR(?v3))))))
 
 
 S-TIME[+INV, SEM=<?semaux(?semv(?semnp,?t,?sempp))>, VAR=?v, GAP=?t] -> V[+AUX,SEM=?semaux] NP[SEM=?semnp] V[-AUX, SEM]
+
+
+What type of transportation is used?
+WHAT(?v),(TYPE(?v) & OF(?v,(TRANSPORTATION(?v4) )))

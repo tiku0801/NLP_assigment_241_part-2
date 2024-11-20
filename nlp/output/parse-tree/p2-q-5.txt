@@ -1,0 +1,1 @@
+WHQUERY(HOWMANY(?v),(TYPE(?v) & OF(?v,(TRANSPORTATION(?v5) & TO(?v5,NAME(pq1,'PQ'))))))
