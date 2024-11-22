@@ -30,7 +30,17 @@ Other folders:
     - answer: final answers of the system
     - parse-tree: logical forms of the questions
 
-## 4. Result:
+## 4. Running
+Windows env (in `/nlp`):
+```
+python main.py
+```
+Or:
+```
+sh util.sh test
+```
+
+## 5. Result:
 Question:
 ```
 How long does it take to travel from Ho Chi Minh to Nha Trang?
@@ -43,3 +53,9 @@ Answer:
 ```
 It takes 5:00 HR to travel to Nha Trang
 ```
+
+## 6. Future work:
+- Make the grammar more general, now is specified with some situations
+- Clearer grammar rules
+- Dependency grammar?
+- Vietnamese support
