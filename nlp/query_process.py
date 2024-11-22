@@ -1,9 +1,13 @@
 import json
-
+import os
 class QueryDatabase:
-    def __init__(self) -> None:
-        with open('input/data/database.json','r') as database_file:
-            self.db = json.load(database_file)['database']
+    def __init__(self,mode = 'standard') -> None:
+        if mode == 'docker':
+            with open(os.getcwd() +'/nlp/input/data/database.json','r') as database_file:
+                self.db = json.load(database_file)['database']
+        else:
+            with open('input/data/database.json','r') as database_file:
+                self.db = json.load(database_file)['database']
     def parse_query(self,sen):
         '''
         INPUT: PARSED SENTENCE

@@ -1,5 +1,6 @@
 import os
 import json
+import sys
 from query_parser import Parser
 from utils import *
 input = {'1': 'Can you repeat all the tours?',
@@ -13,8 +14,11 @@ input = {'1': 'Can you repeat all the tours?',
          '9': 'How long does it take to travel from Ho Chi Minh?'
          }
 class Main:
-    def __init__(self) -> None:
-        self.parser = Parser()
+    def __init__(self,mode = 'standard') -> None:
+        if mode == 'docker':
+            self.parser = Parser('docker')
+        else:
+            self.parser = Parser()
 
     def parse_to_answer(self,query):
         return self.parser.answer(query)
@@ -25,7 +29,18 @@ class Main:
         return tree
     
 if __name__ == '__main__':
-    programm = Main()
-    create_input_file(input,'input/question')
-    write_to_file_with_func('input/question','output/answer',programm.parse_to_answer)
-    write_to_file_with_func('input/question','output/parse-tree',programm.parse_to_tree)
+    path = os.getcwd()
+    if len(sys.argv) > 1 :
+        mode = sys.argv[1]
+        if mode == 'docker':
+            programm = Main(mode)
+            create_input_file(input,path +'/nlp/input/question')
+            write_to_file_with_func(path +'/nlp/input/question',path+'/nlp/output/answer',programm.parse_to_answer)
+            write_to_file_with_func(path +'/nlp/input/question',path +'/nlp/output/parse-tree',programm.parse_to_tree)
+            print("SUCCESS!")
+    else:
+        programm = Main()    
+        create_input_file(input,'input/question')
+        write_to_file_with_func('input/question','output/answer',programm.parse_to_answer)
+        write_to_file_with_func('input/question','output/parse-tree',programm.parse_to_tree)
+        print("SUCCESS!")

@@ -1,10 +1,15 @@
 import nltk
+import os
 from nltk import load_parser
 from query_process import QueryDatabase
 class Parser:
-    def __init__(self) -> None:
-        self.cfg = load_parser('input/data/grammar.fcfg')
-        self.query_proccesor = QueryDatabase()
+    def __init__(self,mode = 'standard') -> None:
+        if mode == 'docker':
+            self.cfg = load_parser(os.getcwd() +'/nlp/input/data/grammar.fcfg')
+            self.query_proccesor = QueryDatabase('docker')
+        else:
+            self.cfg = load_parser('input/data/grammar.fcfg')
+            self.query_proccesor = QueryDatabase()
     
     def parse(self,query):
         '''
